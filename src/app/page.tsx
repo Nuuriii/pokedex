@@ -1,6 +1,4 @@
 "use client";
-import ThemeSwitch from "./commons/element/themeSwitcher";
-import Image from "next/image";
 import Provider from "./provider";
 import Header from "./container/header";
 import PokemonList from "./container/home";
