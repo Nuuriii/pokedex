@@ -4,9 +4,9 @@ import Pokedex from "@/app/assets/Pokédex.svg";
 
 export default function TitleIcon() {
   return (
-    <div>
-      <Image src={Pokeball} alt="" />
-      <Image src={Pokedex} alt="" />
+    <div className="flex items-center">
+      <Image className="mr-[1rem] h-[1.7rem] w-auto" src={Pokeball} alt="" />
+      <Image className="h-[1.7rem] w-auto" src={Pokedex} alt="" />
     </div>
   );
 }
