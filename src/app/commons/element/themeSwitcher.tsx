@@ -23,11 +23,15 @@ const ThemeSwitch = () => {
   return (
     <>
       <button
-        className={`h-[2rem] w-[2rem] flex justify-center items-center rounded-xl active:scale-100 bg-neutral-300 dark:bg-neutral-600 `}
+        className={`h-[2.5rem] w-[2.5rem] flex justify-center items-center rounded-full active:scale-100 bg-white`}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         aria-label="toggletheme"
       >
-        {theme === "light" ? <BsMoon size={18} /> : <BsFillSunFill size={18} />}
+        {theme === "light" ? (
+          <BsMoon size={18} className="text-black" />
+        ) : (
+          <BsFillSunFill size={18} className="text-black" />
+        )}
       </button>
     </>
   );
