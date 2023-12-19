@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getPokemon } from "@/app/api/apiCall";
-import Image from "next/image";
 import Card from "../commons/element/card";
 
 export default function PokemonList() {

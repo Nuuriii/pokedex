@@ -1,11 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { BsCloudMoon, BsCloudSun, BsFillSunFill, BsMoon } from "react-icons/bs";
-
-// interface ThemeProps {
-//   additional: string;
-// }
+import { BsFillSunFill, BsMoon } from "react-icons/bs";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);

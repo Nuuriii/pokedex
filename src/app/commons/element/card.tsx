@@ -1,9 +1,5 @@
 import Image from "next/image";
-
-interface CardProps {
-  name: string;
-  index: number;
-}
+import { CardProps } from "../constant/interface";
 
 export default function Card({ name, index }: CardProps) {
   function capitalizeFirstLetter(str: string) {

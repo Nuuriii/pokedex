@@ -3,7 +3,6 @@ import Search from "@/app/assets/search.svg";
 import { FaSearch } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 import Close from "@/app/assets/close.svg";
-import { IconContext } from "react-icons";
 
 export default function SearchUi() {
   return (
