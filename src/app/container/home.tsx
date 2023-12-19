@@ -22,7 +22,7 @@ export default function PokemonList() {
   };
 
   return (
-    <div>
+    <div className="bg-white dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
       <div className="grid grid-cols-3 gap-3">
         {pokemon.results.map((item: { name: string }, index: number) => (
           <Card key={index} index={index} name={item.name} />
