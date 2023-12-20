@@ -1,10 +1,25 @@
+"use client";
+import { useState, useEffect } from "react";
+import { SearchProps } from "../constant/interface";
 import Image from "next/image";
 import Search from "@/app/assets/search.svg";
 import { FaSearch } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 import Close from "@/app/assets/close.svg";
 
-export default function SearchUi() {
+export let searchValue = "";
+
+export default function SearchUi({ onSearch }: SearchProps) {
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const handleSearch = async () => {
+      onSearch(search);
+    };
+
+    handleSearch();
+  }, [search, onSearch]);
+
   return (
     <div className="w-[85%] bg-white flex items-center rounded-[3rem] h-[2.5rem] px-[1rem]">
       <label htmlFor="search">
@@ -16,6 +31,8 @@ export default function SearchUi() {
       <input
         className="w-[70%] text-[#666666] bg-inherit mr-[0.5rem]"
         type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder="Search"
         id="search"
       />
