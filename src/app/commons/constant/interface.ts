@@ -10,3 +10,11 @@ export interface SearchProps {
 export interface SearchName {
   name: string;
 }
+
+export interface PathProps {
+  name: string;
+  id: number;
+  types: [{ type: { name: string } }];
+  weight: number;
+  height: number;
+}
