@@ -6,3 +6,7 @@ export interface CardProps {
 export interface SearchProps {
   onSearch: (param: string) => void;
 }
+
+export interface SearchName {
+  name: string;
+}

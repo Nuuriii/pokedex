@@ -20,6 +20,7 @@ export default function SearchUi({ onSearch }: SearchProps) {
     handleSearch();
   }, [search, onSearch]);
 
+  //console.log(search);
   return (
     <div className="w-[85%] bg-white flex items-center rounded-[3rem] h-[2.5rem] px-[1rem]">
       <label htmlFor="search">

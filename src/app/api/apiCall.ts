@@ -8,4 +8,10 @@ export const getPokemon = async (limit: number) => {
     .then((response) => response.data)
     .catch((error) => console.log(error));
 };
-//"https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+
+export const searchPokemon = async (name: string) => {
+  return axios
+    .get(`${apiUrl}/pokemon/${name}`)
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+};
