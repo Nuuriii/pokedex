@@ -6,6 +6,9 @@ import Image from "next/image";
 import { PathProps } from "../commons/constant/interface";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
+import { GiPerspectiveDiceSix, GiWeight, GiLawStar } from "react-icons/gi";
+import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
+import { CiStar } from "react-icons/ci";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -14,6 +17,7 @@ export default function Page() {
     types: [{ type: { name: "" } }],
     weight: 0,
     height: 0,
+    base_experience: 0,
   });
   const pathName = usePathname();
   const pokePath = pathName.split("/")[1];
@@ -35,52 +39,97 @@ export default function Page() {
 
   let inputStr = capitalizeFirstLetter(pokeName.name);
 
-  const checkType = (str: string) => {
-    switch (str) {
+  const checkType = (element: string, type: string) => {
+    switch (type) {
       case "grass":
-        return "bg-[#74CB48]";
+        return `${element}-[#74CB48]`;
       case "poison":
-        return "bg-[#A43E9E]";
+        return `${element}-[#A43E9E]`;
       case "normal":
-        return "bg-[#AAA67F]";
+        return `${element}-[#AAA67F]`;
       case "fire":
-        return "bg-[#F57D31]";
+        return `${element}-[#F57D31]`;
       case "water":
-        return "bg-[#6493EB]";
+        return `${element}-[#6493EB]`;
       case "fighting":
-        return "bg-[#C12239]";
+        return `${element}-[#C12239]`;
       case "flying":
-        return "bg-[#A891EC]";
+        return `${element}-[#A891EC]`;
       case "ground":
-        return "bg-[#DEC16B]";
+        return `${element}-[#DEC16B]`;
       case "rock":
-        return "bg-[#B69E31]";
+        return `${element}-[#B69E31]`;
       case "bug":
-        return "bg-[#A7B723]";
+        return `${element}-[#A7B723]`;
       case "ghost":
-        return "bg-[#70559B]";
+        return `${element}-[#70559B]`;
       case "steel":
-        return "bg-[#B7B9D0]";
+        return `${element}-[#B7B9D0]`;
       case "electric":
-        return "bg-[#F9CF30]";
+        return `${element}-[#F9CF30]`;
       case "psychic":
-        return "bg-[#FB5584]";
+        return `${element}-[#FB5584]`;
       case "ice":
-        return "bg-[#9AD6DF]";
+        return `${element}-[#9AD6DF]`;
       case "dragon":
-        return "bg-[#7037FF]";
+        return `${element}-[#7037FF]`;
       case "dark":
-        return "bg-[#75574C]";
+        return `${element}-[#75574C]`;
       case "fairy":
-        return "bg-[#E69EAC]";
+        return `${element}-[#E69EAC]`;
       default:
-        return "bg-[#666666]";
+        return `${element}-[#666666]`;
     }
   };
+
+  const textType = (type: string) => {
+    switch (type) {
+      case "grass":
+        return `text-[#74CB48]`;
+      case "poison":
+        return `text-[#A43E9E]`;
+      case "normal":
+        return `text-[#AAA67F]`;
+      case "fire":
+        return `text-[#F57D31]`;
+      case "water":
+        return `text-[#6493EB]`;
+      case "fighting":
+        return `text-[#C12239]`;
+      case "flying":
+        return `text-[#A891EC]`;
+      case "ground":
+        return `text-[#DEC16B]`;
+      case "rock":
+        return `text-[#B69E31]`;
+      case "bug":
+        return `text-[#A7B723]`;
+      case "ghost":
+        return `text-[#70559B]`;
+      case "steel":
+        return `text-[#B7B9D0]`;
+      case "electric":
+        return `text-[#F9CF30]`;
+      case "psychic":
+        return `text-[#FB5584]`;
+      case "ice":
+        return `text-[#9AD6DF]`;
+      case "dragon":
+        return `text-[#7037FF]`;
+      case "dark":
+        return `text-[#75574C]`;
+      case "fairy":
+        return `text-[#E69EAC]`;
+      default:
+        return `text-[#666666]`;
+    }
+  };
+
   console.log(pokeName);
   return (
     <main
       className={`${checkType(
+        "bg",
         pokeName.types[0].type.name
       )} h-screen px-[0.5rem] py-[1rem]`}
     >
@@ -112,6 +161,7 @@ export default function Page() {
           {pokeName.types.map((item, index) => (
             <h1
               className={`${checkType(
+                "bg",
                 item.type.name
               )} py-[0.2rem] px-[1rem] mr-[0.5rem] rounded-[3rem] font-[700] text-white`}
               key={index}
@@ -120,8 +170,42 @@ export default function Page() {
             </h1>
           ))}
         </div>
-        <p>{pokeName.weight / 10}</p>
-        <p>{pokeName.height / 10}</p>
+        <h1
+          className={`${textType(
+            pokeName.types[0].type.name
+          )} text-[1.1rem] text-center font-[700] my-[1rem]`}
+        >
+          About
+        </h1>
+        <div className="flex justify-center pb-[1rem]">
+          <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
+            <div className="flex items-center">
+              <LiaWeightHangingSolid
+                className="text-[#1D1D1D] mr-[0.5rem]"
+                size={20}
+              />
+              <span className="text-[#1D1D1D]">{pokeName.weight / 10} kg</span>
+            </div>
+            <h3 className="mt-[0.5rem] text-[#666666]">Weight</h3>
+          </div>
+          <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
+            <div className="flex items-center">
+              <LiaRulerVerticalSolid
+                className="text-[#1D1D1D] mr-[0.5rem]"
+                size={20}
+              />
+              <span className="text-[#1D1D1D]">{pokeName.height / 10} m</span>
+            </div>
+            <h3 className="mt-[0.5rem] text-[#666666]">Height</h3>
+          </div>
+          <div className="flex flex-col items-center px-[1.2rem]">
+            <div className="flex items-center">
+              <CiStar className="text-[#1D1D1D] mr-[0.5rem]" size={24} />
+              <span className="text-[#1D1D1D]">{pokeName.base_experience}</span>
+            </div>
+            <h3 className="mt-[0.5rem] text-[#666666]">Base Exp</h3>
+          </div>
+        </div>
       </div>
     </main>
   );
