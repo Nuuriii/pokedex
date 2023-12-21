@@ -6,7 +6,6 @@ export default function Card({ name, index }: CardProps) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  console.log(index);
   let inputStr = capitalizeFirstLetter(name);
 
   return (

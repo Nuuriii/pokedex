@@ -7,12 +7,12 @@ import Card from "../commons/element/card";
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({ results: [{ name: "" }] });
   const [searchResult, setSearchResult] = useState([]);
-  let total = 21;
+  let total = 60;
 
   useEffect(() => {
     fetchData();
     handleSearch();
-  }, [propsName]);
+  }, [total, propsName]);
 
   const handleSearch = async () => {
     if (!propsName) {
