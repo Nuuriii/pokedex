@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import { bgCheck } from "../commons/element/bgType";
 import { textType } from "../commons/element/textType";
+import { statsText } from "../commons/element/statsText";
 import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
 import { getDescription } from "../api/apiCall";
@@ -41,8 +42,6 @@ export default function Page() {
     }
   };
 
-  // console.log(description);
-
   const fetchPokemon = async () => {
     try {
       const data = await searchPokemon(pokePath);
@@ -58,7 +57,6 @@ export default function Page() {
 
   let inputStr = capitalizeFirstLetter(pokeName.name);
 
-  // console.log(pokeName);
   return (
     <main
       className={`${bgCheck(
@@ -110,7 +108,7 @@ export default function Page() {
         </h1>
         <div className="flex justify-center pb-[1rem]">
           <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
-            <div className="flex it﻿ems-center">
+            <div className="flex items-center">
               <LiaWeightHangingSolid
                 className="text-[#1D1D1D] mr-[0.5rem]"
                 size={20}
@@ -149,19 +147,7 @@ export default function Page() {
                     pokeName.types[0].type.name
                   )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
                 >
-                  {item.stat.name === "hp"
-                    ? "HP"
-                    : item.stat.name === "attack"
-                    ? "ATK"
-                    : item.stat.name === "defense"
-                    ? "DEF"
-                    : item.stat.name === "special-attack"
-                    ? "SATK"
-                    : item.stat.name === "special-defense"
-                    ? "SDEF"
-                    : item.stat.name === "speed"
-                    ? "SPD"
-                    : ""}
+                  {statsText(item.stat.name)}
                 </h1>
                 <div className="flex items-center w-[80%]">
                   <p className="mr-[0.5rem]">{item.base_stat}</p>
