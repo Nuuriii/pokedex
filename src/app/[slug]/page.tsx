@@ -12,6 +12,7 @@ import { statsText } from "../commons/element/statsText";
 import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
 import { getDescription } from "../api/apiCall";
+import { containerStats } from "../commons/element/containerStats";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -138,6 +139,13 @@ export default function Page() {
         <p className="mt-[1rem] px-[2rem] text-justify text-[#1D1D1D]">
           {description.split("").join("")}
         </p>
+        <h1
+          className={`${textType(
+            pokeName.types[0].type.name
+          )} text-[1.1rem] text-center font-[700] my-[1rem]`}
+        >
+          Base Stats
+        </h1>
         <div className="flex w-full flex-col items-center">
           {pokeName.stats.map((item, index) => (
             <>
@@ -151,7 +159,11 @@ export default function Page() {
                 </h1>
                 <div className="flex items-center w-[80%]">
                   <p className="mr-[0.5rem]">{item.base_stat}</p>
-                  <div className="rounded-[3rem] overflow-hidden w-full h-[0.3rem] bg-neutral-200">
+                  <div
+                    className={`rounded-[3rem] overflow-hidden w-full h-[0.3rem] ${containerStats(
+                      pokeName.types[0].type.name
+                    )}`}
+                  >
                     <div
                       className={`h-full ${bgCheck(
                         pokeName.types[0].type.name
