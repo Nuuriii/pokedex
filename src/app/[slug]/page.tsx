@@ -6,9 +6,10 @@ import Image from "next/image";
 import { PathProps } from "../commons/constant/interface";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
-import { GiPerspectiveDiceSix, GiWeight, GiLawStar } from "react-icons/gi";
+import { bgCheck } from "../commons/element/bgChecker";
 import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
+import { getDescription } from "../api/apiCall";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -18,19 +19,36 @@ export default function Page() {
     weight: 0,
     height: 0,
     base_experience: 0,
+    stats: [{ base_stat: 0, stat: { name: "" } }],
   });
   const pathName = usePathname();
   const pokePath = pathName.split("/")[1];
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     fetchPokemon();
-  }, [pokePath]);
+    fetchDescription();
+  }, [pokePath, pokeName.id]);
+
+  const fetchDescription = async () => {
+    try {
+      const data = await getDescription(pokeName.id);
+      const description = data.flavor_text_entries[6].flavor_text;
+      setDescription(description);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(description);
 
   const fetchPokemon = async () => {
     try {
       const data = await searchPokemon(pokePath);
       setPokename(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   function capitalizeFirstLetter(str: string) {
@@ -39,46 +57,46 @@ export default function Page() {
 
   let inputStr = capitalizeFirstLetter(pokeName.name);
 
-  const checkType = (element: string, type: string) => {
+  const checkType = (type: string) => {
     switch (type) {
       case "grass":
-        return `${element}-[#74CB48]`;
+        return `bg-[#74CB48]`;
       case "poison":
-        return `${element}-[#A43E9E]`;
+        return `bg-[#A43E9E]`;
       case "normal":
-        return `${element}-[#AAA67F]`;
+        return `bg-[#AAA67F]`;
       case "fire":
-        return `${element}-[#F57D31]`;
+        return `bg-[#F57D31]`;
       case "water":
-        return `${element}-[#6493EB]`;
+        return `bg-[#6493EB]`;
       case "fighting":
-        return `${element}-[#C12239]`;
+        return `bg-[#C12239]`;
       case "flying":
-        return `${element}-[#A891EC]`;
+        return `bg-[#A891EC]`;
       case "ground":
-        return `${element}-[#DEC16B]`;
+        return `bg-[#DEC16B]`;
       case "rock":
-        return `${element}-[#B69E31]`;
+        return `bg-[#B69E31]`;
       case "bug":
-        return `${element}-[#A7B723]`;
+        return `bg-[#A7B723]`;
       case "ghost":
-        return `${element}-[#70559B]`;
+        return `bg-[#70559B]`;
       case "steel":
-        return `${element}-[#B7B9D0]`;
+        return `bg-[#B7B9D0]`;
       case "electric":
-        return `${element}-[#F9CF30]`;
+        return `bg-[#F9CF30]`;
       case "psychic":
-        return `${element}-[#FB5584]`;
+        return `bg-[#FB5584]`;
       case "ice":
-        return `${element}-[#9AD6DF]`;
+        return `bg-[#9AD6DF]`;
       case "dragon":
-        return `${element}-[#7037FF]`;
+        return `bg-[#7037FF]`;
       case "dark":
-        return `${element}-[#75574C]`;
+        return `bg-[#75574C]`;
       case "fairy":
-        return `${element}-[#E69EAC]`;
+        return `bg-[#E69EAC]`;
       default:
-        return `${element}-[#666666]`;
+        return `bg-[#666666]`;
     }
   };
 
@@ -128,10 +146,9 @@ export default function Page() {
   console.log(pokeName);
   return (
     <main
-      className={`${checkType(
-        "bg",
+      className={`${bgCheck(
         pokeName.types[0].type.name
-      )} h-screen px-[0.5rem] py-[1rem]`}
+      )} h-full px-[0.5rem] py-[1rem]`}
     >
       <div className="relative flex flex-col items-center ml-[0.5rem]">
         <div className="flex justify-left w-full">
@@ -156,12 +173,11 @@ export default function Page() {
           }}
         />
       </div>
-      <div className="bg-white rounded-[0.7rem] mt-[11rem] pt-[2rem]">
+      <div className="bg-white rounded-[0.7rem] mt-[11rem] pt-[2rem] pb-[1rem]">
         <div className="mt-[2rem] flex justify-center items-center">
           {pokeName.types.map((item, index) => (
             <h1
-              className={`${checkType(
-                "bg",
+              className={`${bgCheck(
                 item.type.name
               )} py-[0.2rem] px-[1rem] mr-[0.5rem] rounded-[3rem] font-[700] text-white`}
               key={index}
@@ -179,7 +195,7 @@ export default function Page() {
         </h1>
         <div className="flex justify-center pb-[1rem]">
           <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
-            <div className="flex items-center">
+            <div className="flex it﻿ems-center">
               <LiaWeightHangingSolid
                 className="text-[#1D1D1D] mr-[0.5rem]"
                 size={20}
@@ -205,6 +221,47 @@ export default function Page() {
             </div>
             <h3 className="mt-[0.5rem] text-[#666666]">Base Exp</h3>
           </div>
+        </div>
+        <p className="mt-[1rem] px-[2rem] text-justify text-[#1D1D1D]">
+          {description.split("").join("")}
+        </p>
+        <div className="flex w-full flex-col items-center">
+          {pokeName.stats.map((item, index) => (
+            <>
+              <div className="flex items-center w-[90%]" key={index}>
+                <h1
+                  className={`${textType(
+                    pokeName.types[0].type.name
+                  )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
+                >
+                  {item.stat.name === "hp"
+                    ? "HP"
+                    : item.stat.name === "attack"
+                    ? "ATK"
+                    : item.stat.name === "defense"
+                    ? "DEF"
+                    : item.stat.name === "special-attack"
+                    ? "SATK"
+                    : item.stat.name === "special-defense"
+                    ? "SDEF"
+                    : item.stat.name === "speed"
+                    ? "SPD"
+                    : ""}
+                </h1>
+                <div className="flex items-center w-[80%]">
+                  <p className="mr-[0.5rem]">{item.base_stat}</p>
+                  <div className="rounded-[3rem] overflow-hidden w-full h-[0.3rem] bg-neutral-200">
+                    <div
+                      className={`h-full ${bgCheck(
+                        pokeName.types[0].type.name
+                      )}`}
+                      style={{ width: `${(item.base_stat / 255) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ))}
         </div>
       </div>
     </main>

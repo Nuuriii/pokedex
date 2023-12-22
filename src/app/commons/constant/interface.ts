@@ -18,4 +18,5 @@ export interface PathProps {
   weight: number;
   height: number;
   base_experience: number;
+  stats: [{ base_stat: number; stat: { name: string } }];
 }
