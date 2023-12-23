@@ -35,3 +35,7 @@ export interface AboutInfoProps {
   weight: number;
   exp: number;
 }
+
+export interface BackLinkProps {
+  pokemon: string;
+}

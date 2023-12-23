@@ -12,6 +12,7 @@ import { getDescription } from "../api/apiCall";
 import PokemonImages from "./components/images";
 import StatsInformation from "../commons/element/containerStats";
 import AboutInformation from "./components/aboutInformation";
+import { BackLink } from "./components/backLink";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -64,15 +65,7 @@ export default function Page() {
       )} h-full px-[0.5rem] py-[1rem]`}
     >
       <div className="relative flex flex-col items-center ml-[0.5rem]">
-        <div className="flex justify-left w-full">
-          <Link
-            className="text-white text-[1.5rem] font-[700] flex items-center"
-            href={"/"}
-          >
-            <FiArrowLeft size={28} />
-            <span className="ml-[0.5rem]">{inputStr}</span>
-          </Link>
-        </div>
+        <BackLink pokemon={inputStr} />
         <PokemonImages index={pokeName.id} />
       </div>
       <div className="bg-white rounded-[0.7rem] mt-[11rem] pt-[2rem] pb-[1rem]">
