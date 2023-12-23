@@ -13,19 +13,19 @@ export const containerStats = (stats: string) => {
     case "fighting":
       return `bg-[#facdd3]`;
     case "flying":
-      return `bg-[#A891EC]`;
+      return `bg-[#d8cef5]`;
     case "ground":
-      return `bg-[#DEC16B]`;
+      return `bg-[#f7e8ba]`;
     case "rock":
-      return `bg-[#B69E31]`;
+      return `bg-[#fcefb1]`;
     case "bug":
-      return `bg-[#A7B723]`;
+      return `bg-[#e3e8bc]`;
     case "ghost":
-      return `bg-[#70559B]`;
+      return `bg-[#aa95cc]`;
     case "steel":
-      return `bg-[#B7B9D0]`;
+      return `bg-[#d3d5eb]`;
     case "electric":
-      return `bg-[#F9CF30]`;
+      return `bg-[#faf1cf]`;
     case "psychic":
       return `bg-[#FB5584]`;
     case "ice":
