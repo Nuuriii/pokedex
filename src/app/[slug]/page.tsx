@@ -158,9 +158,9 @@ export default function Page() {
                   {statsText(item.stat.name)}
                 </h1>
                 <div className="flex items-center w-[80%]">
-                  <p className="mr-[0.5rem]">{item.base_stat}</p>
+                  <p className="mr-[0.5rem] w-[10%]">{item.base_stat}</p>
                   <div
-                    className={`rounded-[3rem] overflow-hidden w-full h-[0.3rem] ${containerStats(
+                    className={`rounded-[3rem] overflow-hidden w-[90%] h-[0.3rem] ${containerStats(
                       pokeName.types[0].type.name
                     )}`}
                   >
