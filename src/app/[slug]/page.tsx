@@ -12,7 +12,7 @@ import { statsText } from "../commons/element/statsText";
 import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
 import { getDescription } from "../api/apiCall";
-import { containerStats } from "../commons/element/containerStats";
+import PokemonImages from "./components/images";
 import StatsInformation from "../commons/element/containerStats";
 
 export default function Page() {
@@ -75,18 +75,7 @@ export default function Page() {
             <span className="ml-[0.5rem]">{inputStr}</span>
           </Link>
         </div>
-        <Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeName.id}.png`}
-          alt=""
-          className="absolute top-[4rem]"
-          width={20}
-          height={15}
-          sizes="100vw"
-          style={{
-            width: "auto",
-            height: "13rem",
-          }}
-        />
+        <PokemonImages index={pokeName.id} />
       </div>
       <div className="bg-white rounded-[0.7rem] mt-[11rem] pt-[2rem] pb-[1rem]">
         <div className="mt-[2rem] flex justify-center items-center">

@@ -25,3 +25,7 @@ export interface StatsProps {
   type: string;
   baseStats: number;
 }
+
+export interface ImageProps {
+  index: number;
+}
