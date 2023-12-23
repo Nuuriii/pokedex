@@ -29,3 +29,9 @@ export interface StatsProps {
 export interface ImageProps {
   index: number;
 }
+
+export interface AboutInfoProps {
+  height: number;
+  weight: number;
+  exp: number;
+}

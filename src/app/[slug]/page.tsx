@@ -2,18 +2,16 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { searchPokemon } from "../api/apiCall";
-import Image from "next/image";
 import { PathProps } from "../commons/constant/interface";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import { bgCheck } from "../commons/element/bgType";
 import { textType } from "../commons/element/textType";
 import { statsText } from "../commons/element/statsText";
-import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
-import { CiStar } from "react-icons/ci";
 import { getDescription } from "../api/apiCall";
 import PokemonImages from "./components/images";
 import StatsInformation from "../commons/element/containerStats";
+import AboutInformation from "./components/aboutInformation";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -97,35 +95,11 @@ export default function Page() {
         >
           About
         </h1>
-        <div className="flex justify-center pb-[1rem]">
-          <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
-            <div className="flex items-center">
-              <LiaWeightHangingSolid
-                className="text-[#1D1D1D] mr-[0.5rem]"
-                size={20}
-              />
-              <span className="text-[#1D1D1D]">{pokeName.weight / 10} kg</span>
-            </div>
-            <h3 className="mt-[0.5rem] text-[#666666]">Weight</h3>
-          </div>
-          <div className="flex flex-col items-center px-[1.2rem] border-r-2 border-solid border-neutral-200">
-            <div className="flex items-center">
-              <LiaRulerVerticalSolid
-                className="text-[#1D1D1D] mr-[0.5rem]"
-                size={20}
-              />
-              <span className="text-[#1D1D1D]">{pokeName.height / 10} m</span>
-            </div>
-            <h3 className="mt-[0.5rem] text-[#666666]">Height</h3>
-          </div>
-          <div className="flex flex-col items-center px-[1.2rem]">
-            <div className="flex items-center">
-              <CiStar className="text-[#1D1D1D] mr-[0.5rem]" size={24} />
-              <span className="text-[#1D1D1D]">{pokeName.base_experience}</span>
-            </div>
-            <h3 className="mt-[0.5rem] text-[#666666]">Base Exp</h3>
-          </div>
-        </div>
+        <AboutInformation
+          weight={pokeName.weight}
+          height={pokeName.height}
+          exp={pokeName.base_experience}
+        />
         <p className="mt-[1rem] px-[2rem] text-justify text-[#1D1D1D]">
           {description.split("").join("")}
         </p>
