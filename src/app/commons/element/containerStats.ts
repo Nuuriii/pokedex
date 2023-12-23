@@ -27,15 +27,15 @@ export const containerStats = (stats: string) => {
     case "electric":
       return `bg-[#faf1cf]`;
     case "psychic":
-      return `bg-[#FB5584]`;
+      return `bg-[#e6a5b7]`;
     case "ice":
-      return `bg-[#9AD6DF]`;
+      return `bg-[#bee3e8]`;
     case "dragon":
-      return `bg-[#7037FF]`;
+      return `bg-[#a396eb]`;
     case "dark":
-      return `bg-[#75574C]`;
+      return `bg-[#b39388]`;
     case "fairy":
-      return `bg-[#E69EAC]`;
+      return `bg-[#f7e1e5]`;
     default:
       return "bg-neutral-300";
   }
