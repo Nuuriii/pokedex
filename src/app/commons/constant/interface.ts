@@ -39,3 +39,8 @@ export interface AboutInfoProps {
 export interface BackLinkProps {
   pokemon: string;
 }
+
+export interface TypePokemonProps {
+  bgColor: string;
+  typeName: string;
+}

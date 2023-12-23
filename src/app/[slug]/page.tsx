@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { searchPokemon } from "../api/apiCall";
 import { PathProps } from "../commons/constant/interface";
-import Link from "next/link";
-import { FiArrowLeft } from "react-icons/fi";
 import { bgCheck } from "../commons/element/bgType";
 import { textType } from "../commons/element/textType";
 import { statsText } from "../commons/element/statsText";
@@ -13,6 +11,7 @@ import PokemonImages from "./components/images";
 import StatsInformation from "../commons/element/containerStats";
 import AboutInformation from "./components/aboutInformation";
 import { BackLink } from "./components/backLink";
+import TypePokemon from "./components/typePokemon";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -71,14 +70,11 @@ export default function Page() {
       <div className="bg-white rounded-[0.7rem] mt-[11rem] pt-[2rem] pb-[1rem]">
         <div className="mt-[2rem] flex justify-center items-center">
           {pokeName.types.map((item, index) => (
-            <h1
-              className={`${bgCheck(
-                item.type.name
-              )} py-[0.2rem] px-[1rem] mr-[0.5rem] rounded-[3rem] font-[700] text-white`}
+            <TypePokemon
               key={index}
-            >
-              {capitalizeFirstLetter(item.type.name)}
-            </h1>
+              bgColor={bgCheck(item.type.name)}
+              typeName={capitalizeFirstLetter(item.type.name)}
+            />
           ))}
         </div>
         <h1
