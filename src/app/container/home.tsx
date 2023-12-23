@@ -68,9 +68,3 @@ export default function PokemonList({ propsName }: any) {
     </div>
   );
 }
-
-// <div>
-//   <h2>{searchResult.name}</h2>
-//   <img src={searchResult.sprites.front_default} alt={searchResult.name} />
-//   {/* Tampilkan informasi lainnya sesuai kebutuhan */}
-// </div>;
