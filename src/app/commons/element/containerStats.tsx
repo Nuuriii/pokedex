@@ -1,3 +1,6 @@
+import { StatsProps } from "../constant/interface";
+import { bgCheck } from "./bgType";
+
 export const containerStats = (stats: string) => {
   switch (stats) {
     case "grass":
@@ -40,3 +43,18 @@ export const containerStats = (stats: string) => {
       return "bg-neutral-300";
   }
 };
+
+export default function StatsInformation({ type, baseStats }: StatsProps) {
+  return (
+    <div
+      className={`rounded-[3rem] overflow-hidden w-[90%] h-[0.3rem] ${containerStats(
+        type
+      )}`}
+    >
+      <div
+        className={`h-full ${bgCheck(type)}`}
+        style={{ width: `${(baseStats / 255) * 100}%` }}
+      ></div>
+    </div>
+  );
+}

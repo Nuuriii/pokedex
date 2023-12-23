@@ -20,3 +20,8 @@ export interface PathProps {
   base_experience: number;
   stats: [{ base_stat: number; stat: { name: string } }];
 }
+
+export interface StatsProps {
+  type: string;
+  baseStats: number;
+}

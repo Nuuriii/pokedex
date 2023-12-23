@@ -13,6 +13,7 @@ import { LiaWeightHangingSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 import { CiStar } from "react-icons/ci";
 import { getDescription } from "../api/apiCall";
 import { containerStats } from "../commons/element/containerStats";
+import StatsInformation from "../commons/element/containerStats";
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -148,32 +149,22 @@ export default function Page() {
         </h1>
         <div className="flex w-full flex-col items-center">
           {pokeName.stats.map((item, index) => (
-            <>
-              <div className="flex items-center w-[90%]" key={index}>
-                <h1
-                  className={`${textType(
-                    pokeName.types[0].type.name
-                  )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
-                >
-                  {statsText(item.stat.name)}
-                </h1>
-                <div className="flex items-center w-[80%]">
-                  <p className="mr-[0.5rem] w-[10%]">{item.base_stat}</p>
-                  <div
-                    className={`rounded-[3rem] overflow-hidden w-[90%] h-[0.3rem] ${containerStats(
-                      pokeName.types[0].type.name
-                    )}`}
-                  >
-                    <div
-                      className={`h-full ${bgCheck(
-                        pokeName.types[0].type.name
-                      )}`}
-                      style={{ width: `${(item.base_stat / 255) * 100}%` }}
-                    ></div>
-                  </div>
-                </div>
+            <div className="flex items-center w-[90%]" key={index}>
+              <h1
+                className={`${textType(
+                  pokeName.types[0].type.name
+                )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
+              >
+                {statsText(item.stat.name)}
+              </h1>
+              <div className="flex items-center w-[80%]">
+                <p className="mr-[0.5rem] w-[10%]">{item.base_stat}</p>
+                <StatsInformation
+                  type={pokeName.types[0].type.name}
+                  baseStats={item.base_stat}
+                />
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
