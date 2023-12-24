@@ -1,31 +1,31 @@
-"use client";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { searchPokemon } from "../api/apiCall";
-import { PathProps } from "../commons/constant/interface";
-import { bgCheck } from "../commons/element/bgType";
-import { textType } from "../commons/element/textType";
-import { statsText } from "../commons/element/statsText";
-import { getDescription } from "../api/apiCall";
-import PokemonImages from "./components/images";
-import StatsInformation from "../commons/element/containerStats";
-import AboutInformation from "./components/aboutInformation";
-import { BackLink } from "./components/backLink";
-import TypePokemon from "./components/typePokemon";
+'use client';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { searchPokemon } from '../api/apiCall';
+import { PathProps } from '../commons/constant/interface';
+import { bgCheck } from '../commons/element/bgType';
+import { textType } from '../commons/element/textType';
+import { statsText } from '../commons/element/statsText';
+import { getDescription } from '../api/apiCall';
+import PokemonImages from './components/images';
+import StatsInformation from '../commons/element/containerStats';
+import AboutInformation from './components/aboutInformation';
+import { BackLink } from './components/backLink';
+import TypePokemon from './components/typePokemon';
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
-    name: "",
+    name: '',
     id: 1,
-    types: [{ type: { name: "" } }],
+    types: [{ type: { name: '' } }],
     weight: 0,
     height: 0,
     base_experience: 0,
-    stats: [{ base_stat: 0, stat: { name: "" } }],
+    stats: [{ base_stat: 0, stat: { name: '' } }],
   });
   const pathName = usePathname();
-  const pokePath = pathName.split("/")[1];
-  const [description, setDescription] = useState("");
+  const pokePath = pathName.split('/')[1];
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     fetchPokemon();
@@ -60,7 +60,7 @@ export default function Page() {
   return (
     <main
       className={`${bgCheck(
-        pokeName.types[0].type.name
+        pokeName.types[0].type.name,
       )} h-full px-[0.5rem] py-[1rem]`}
     >
       <div className="relative flex flex-col items-center ml-[0.5rem]">
@@ -79,7 +79,7 @@ export default function Page() {
         </div>
         <h1
           className={`${textType(
-            pokeName.types[0].type.name
+            pokeName.types[0].type.name,
           )} text-[1.1rem] text-center font-[700] my-[1rem]`}
         >
           About
@@ -90,11 +90,11 @@ export default function Page() {
           exp={pokeName.base_experience}
         />
         <p className="mt-[1rem] px-[2rem] text-justify text-[#1D1D1D]">
-          {description.split("").join("")}
+          {description.split('').join('')}
         </p>
         <h1
           className={`${textType(
-            pokeName.types[0].type.name
+            pokeName.types[0].type.name,
           )} text-[1.1rem] text-center font-[700] my-[1rem]`}
         >
           Base Stats
@@ -104,7 +104,7 @@ export default function Page() {
             <div className="flex items-center w-[90%]" key={index}>
               <h1
                 className={`${textType(
-                  pokeName.types[0].type.name
+                  pokeName.types[0].type.name,
                 )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
               >
                 {statsText(item.stat.name)}
