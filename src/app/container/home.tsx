@@ -2,11 +2,16 @@
 import { useState, useEffect } from "react";
 import { getPokemon } from "@/app/api/apiCall";
 import Card from "../commons/element/card";
+import { cookies } from "next/headers";
+import { setCookie, getCookie } from "cookies-next";
 
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({ results: [{ name: "" }] });
   const [searchResult, setSearchResult] = useState([]);
-  const [limit, setLimit] = useState(500);
+  const [limit, setLimit] = useState(() => {
+    const get = getCookie("pokemon-limit");
+    return get === "" || get === null || get === undefined ? 20 : Number(get);
+  });
   let total = 20;
 
   useEffect(() => {
@@ -41,10 +46,11 @@ export default function PokemonList({ propsName }: any) {
   };
 
   const addPokemon = () => {
-    setLimit(limit + 20);
+    setLimit((prev) => prev + 20);
+    setCookie("pokemon-limit", `${limit + 20}`, { maxAge: 60 * 60 * 24 });
   };
 
-  console.log(total);
+  console.log(limit);
 
   console.log(searchResult);
 
