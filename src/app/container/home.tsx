@@ -1,18 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getPokemon } from "@/app/api/apiCall";
-import Image from "next/image";
 import Card from "../commons/element/card";
 
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({ results: [{ name: "" }] });
   const [searchResult, setSearchResult] = useState([]);
-  let total = 60;
+  const [limit, setLimit] = useState(500);
+  let total = 20;
 
   useEffect(() => {
     fetchData();
     handleSearch();
-  }, [total, propsName]);
+  }, [limit, propsName]);
 
   const handleSearch = async () => {
     if (!propsName) {
@@ -21,7 +21,7 @@ export default function PokemonList({ propsName }: any) {
     }
 
     try {
-      const response = await getPokemon(total);
+      const response = await getPokemon(limit);
       const filteredResults = response.results.filter((pokemon: any) =>
         pokemon.name.toLowerCase().startsWith(propsName.toLowerCase())
       );
@@ -33,12 +33,18 @@ export default function PokemonList({ propsName }: any) {
 
   const fetchData = async () => {
     try {
-      const data = await getPokemon(total);
+      const data = await getPokemon(limit);
       setPokemon(data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const addPokemon = () => {
+    setLimit(limit + 20);
+  };
+
+  console.log(total);
 
   console.log(searchResult);
 
@@ -65,6 +71,7 @@ export default function PokemonList({ propsName }: any) {
           </>
         )}
       </div>
+      <button onClick={addPokemon}>Load More</button>
     </div>
   );
 }
