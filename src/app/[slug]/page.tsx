@@ -89,7 +89,7 @@ export default function Page() {
           height={pokeName.height}
           exp={pokeName.base_experience}
         />
-        <p className="mt-[1rem] px-[2rem] text-justify text-[#1D1D1D]">
+        <p className="mt-[1rem] px-[1.5rem] text-justify text-[#1D1D1D]">
           {description.split('').join('')}
         </p>
         <h1
@@ -99,13 +99,13 @@ export default function Page() {
         >
           Base Stats
         </h1>
-        <div className="flex w-full flex-col items-center">
+        <div className="flex w-full flex-col px-[1.5rem] items-center">
           {pokeName.stats.map((item, index) => (
-            <div className="flex items-center w-[90%]" key={index}>
+            <div className="flex items-center w-full" key={index}>
               <h1
                 className={`${textType(
                   pokeName.types[0].type.name,
-                )} font-[700] pr-[1rem] border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
+                )} font-[700] pr-[1rem] min-[432px]:border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
               >
                 {statsText(item.stat.name)}
               </h1>
