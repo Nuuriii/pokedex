@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CardProps } from "../constant/interface";
+import Link from 'next/link';
+import Image from 'next/image';
+import { CardProps } from '../constant/interface';
 
 export default function Card({ name, index }: CardProps) {
   function capitalizeFirstLetter(str: string) {
@@ -24,11 +24,11 @@ export default function Card({ name, index }: CardProps) {
         height={15}
         sizes="100vw"
         style={{
-          width: "auto",
-          height: "8rem",
+          width: 'auto',
+          height: '8rem',
         }}
       />
-      <div className="h-[40%] w-full bg-neutral-200 flex justify-center dark:text-black dark:bg-neutral-700 items-end pb-[1rem]">
+      <div className="h-[40%] w-full bg-neutral-200 flex justify-center dark:text-black dark:bg-neutral-700 items-end pb-[1rem] rounded-t-[0.7rem]">
         <h3 className="dark:text-white font-medium">{inputStr}</h3>
       </div>
     </Link>
