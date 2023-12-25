@@ -1,18 +1,16 @@
-"use client";
-import { useState, useEffect } from "react";
-import { getPokemon } from "@/app/api/apiCall";
-import Card from "../commons/element/card";
-import { cookies } from "next/headers";
-import { setCookie, getCookie } from "cookies-next";
+'use client';
+import { useState, useEffect } from 'react';
+import { getPokemon } from '@/app/api/apiCall';
+import Card from '../commons/element/card';
+import { setCookie, getCookie } from 'cookies-next';
 
 export default function PokemonList({ propsName }: any) {
-  const [pokemon, setPokemon] = useState({ results: [{ name: "" }] });
+  const [pokemon, setPokemon] = useState({ results: [{ name: '' }] });
   const [searchResult, setSearchResult] = useState([]);
   const [limit, setLimit] = useState(() => {
-    const get = getCookie("pokemon-limit");
-    return get === "" || get === null || get === undefined ? 20 : Number(get);
+    const get = getCookie('pokemon-limit');
+    return get === '' || get === null || get === undefined ? 20 : Number(get);
   });
-  let total = 20;
 
   useEffect(() => {
     fetchData();
@@ -28,11 +26,11 @@ export default function PokemonList({ propsName }: any) {
     try {
       const response = await getPokemon(limit);
       const filteredResults = response.results.filter((pokemon: any) =>
-        pokemon.name.toLowerCase().startsWith(propsName.toLowerCase())
+        pokemon.name.toLowerCase().startsWith(propsName.toLowerCase()),
       );
       setSearchResult(filteredResults);
     } catch (error) {
-      console.log("Error searching Pokemon: ", error);
+      console.log('Error searching Pokemon: ', error);
     }
   };
 
@@ -47,7 +45,7 @@ export default function PokemonList({ propsName }: any) {
 
   const addPokemon = () => {
     setLimit((prev) => prev + 20);
-    setCookie("pokemon-limit", `${limit + 20}`, { maxAge: 60 * 60 * 24 });
+    setCookie('pokemon-limit', `${limit + 20}`, { maxAge: 60 * 60 * 24 });
   };
 
   console.log(limit);
@@ -63,11 +61,11 @@ export default function PokemonList({ propsName }: any) {
               <Card
                 key={index}
                 name={pokemon.name}
-                index={Number(pokemon.url.split("/")[6] - 1)}
+                index={Number(pokemon.url.split('/')[6] - 1)}
               />
             ))}
           </>
-        ) : searchResult.length === 0 && propsName !== "" ? (
+        ) : searchResult.length === 0 && propsName !== '' ? (
           <p>Hasil pencarian tidak ditemukan</p>
         ) : (
           <>
