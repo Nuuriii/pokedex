@@ -28,6 +28,7 @@ export interface StatsProps {
 
 export interface ImageProps {
   index: number;
+  types: [{ type: { name: string } }];
 }
 
 export interface AboutInfoProps {
