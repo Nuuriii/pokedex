@@ -1,54 +1,54 @@
-import { StatsProps } from "../constant/interface";
-import { bgCheck } from "./bgType";
+import { StatsProps } from '../constant/interface';
+import { bgCheck } from './bgType';
 
 export const containerStats = (stats: string) => {
   switch (stats) {
-    case "grass":
-      return "bg-[#d6f5c6]";
-    case "poison":
+    case 'grass':
+      return 'bg-[#d6f5c6]';
+    case 'poison':
       return `bg-[#fcc5f9]`;
-    case "normal":
+    case 'normal':
       return `bg-[#dedcd1]`;
-    case "fire":
+    case 'fire':
       return `bg-[#fadbc8]`;
-    case "water":
+    case 'water':
       return `bg-[#cfdefa]`;
-    case "fighting":
+    case 'fighting':
       return `bg-[#facdd3]`;
-    case "flying":
+    case 'flying':
       return `bg-[#d8cef5]`;
-    case "ground":
+    case 'ground':
       return `bg-[#f7e8ba]`;
-    case "rock":
+    case 'rock':
       return `bg-[#fcefb1]`;
-    case "bug":
+    case 'bug':
       return `bg-[#e3e8bc]`;
-    case "ghost":
+    case 'ghost':
       return `bg-[#aa95cc]`;
-    case "steel":
+    case 'steel':
       return `bg-[#d3d5eb]`;
-    case "electric":
+    case 'electric':
       return `bg-[#faf1cf]`;
-    case "psychic":
+    case 'psychic':
       return `bg-[#e6a5b7]`;
-    case "ice":
+    case 'ice':
       return `bg-[#bee3e8]`;
-    case "dragon":
+    case 'dragon':
       return `bg-[#a396eb]`;
-    case "dark":
+    case 'dark':
       return `bg-[#b39388]`;
-    case "fairy":
+    case 'fairy':
       return `bg-[#f7e1e5]`;
     default:
-      return "bg-neutral-300";
+      return 'bg-neutral-300';
   }
 };
 
 export default function StatsInformation({ type, baseStats }: StatsProps) {
   return (
     <div
-      className={`rounded-[3rem] overflow-hidden w-[90%] h-[0.3rem] ${containerStats(
-        type
+      className={`rounded-[3rem] overflow-hidden w-[90%] sm:w-[95%] h-[0.3rem] ${containerStats(
+        type,
       )}`}
     >
       <div

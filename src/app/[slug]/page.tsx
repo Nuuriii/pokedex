@@ -105,12 +105,14 @@ export default function Page() {
               <h1
                 className={`${textType(
                   pokeName.types[0].type.name,
-                )} font-[700] pr-[1rem] min-[432px]:border-r-2 border-solid border-neutral-400 w-[15%] mr-[1rem]`}
+                )} font-[700] pr-[1rem] min-[432px]:border-r-2 border-solid border-neutral-400 w-[15%] md:w-[8%] mr-[1rem]`}
               >
                 {statsText(item.stat.name)}
               </h1>
-              <div className="flex items-center w-[80%]">
-                <p className="mr-[0.5rem] w-[10%]">{item.base_stat}</p>
+              <div className="flex items-center w-[80%] sm:w-[90%]">
+                <p className="mr-[0.5rem] w-[10%] sm:w-[5%]">
+                  {item.base_stat}
+                </p>
                 <StatsInformation
                   type={pokeName.types[0].type.name}
                   baseStats={item.base_stat}
