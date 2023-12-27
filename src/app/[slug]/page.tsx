@@ -61,9 +61,9 @@ export default function Page() {
     <main
       className={`${bgCheck(
         pokeName.types[0].type.name,
-      )} h-full md:h-screen px-[0.5rem] py-[1rem]`}
+      )} h-full md:h-screen px-[0.5rem] py-[1rem] md:flex justify-center items-center`}
     >
-      <div className="md:flex md:justify-center md:bg-white md:rounded-[0.7rem] md:pb-[2rem]">
+      <div className="md:flex md:justify-center md:bg-white md:rounded-[0.7rem] md:pb-[2rem] lg:w-[60rem]">
         <div className="relative flex flex-col items-center md:w-[50%] ml-[0.5rem] md:pt-[1rem]">
           <BackLink pokemon={inputStr} />
           <PokemonImages index={pokeName.id} types={pokeName.types} />

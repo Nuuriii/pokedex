@@ -3,6 +3,7 @@ import { ImageProps } from '@/app/commons/constant/interface';
 import { capitalizeFirstLetter } from '@/app/commons/element/capitalFirstLetter';
 import { bgCheck } from '@/app/commons/element/bgType';
 import TypePokemon from './typePokemon';
+import { containerStats } from '@/app/commons/element/containerStats';
 
 export default function PokemonImages({ index, types }: ImageProps) {
   return (
@@ -20,7 +21,9 @@ export default function PokemonImages({ index, types }: ImageProps) {
         }}
       />
       <div className="hidden md:flex flex-col h-full">
-        <div className="rounded-[0.5rem] bg-green-100">
+        <div
+          className={`rounded-[0.5rem] ${containerStats(types[0].type.name)}`}
+        >
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`}
             alt=""
