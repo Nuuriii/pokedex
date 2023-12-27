@@ -10,7 +10,11 @@ export default function PokemonImages({ index, types }: ImageProps) {
   return (
     <>
       <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`}
+        src={
+          types[0].type.name === ''
+            ? DefaultImg
+            : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`
+        }
         alt=""
         className="absolute top-[4rem] md:hidden"
         width={20}
