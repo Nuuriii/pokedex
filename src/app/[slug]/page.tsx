@@ -15,7 +15,7 @@ import TypePokemon from './components/typePokemon';
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
-    name: '',
+    name: 'Pokemon Name',
     id: 1,
     types: [{ type: { name: '' } }],
     weight: 0,

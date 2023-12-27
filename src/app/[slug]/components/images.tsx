@@ -4,6 +4,7 @@ import { capitalizeFirstLetter } from '@/app/commons/element/capitalFirstLetter'
 import { bgCheck } from '@/app/commons/element/bgType';
 import TypePokemon from './typePokemon';
 import { containerStats } from '@/app/commons/element/containerStats';
+import DefaultImg from '@/app/assets/defaultImg.svg';
 
 export default function PokemonImages({ index, types }: ImageProps) {
   return (
@@ -25,7 +26,11 @@ export default function PokemonImages({ index, types }: ImageProps) {
           className={`rounded-[0.5rem] ${containerStats(types[0].type.name)}`}
         >
           <Image
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`}
+            src={
+              types[0].type.name === ''
+                ? DefaultImg
+                : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`
+            }
             alt=""
             className="w-auto h-[20rem]"
             width={20}

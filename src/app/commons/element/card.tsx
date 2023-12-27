@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { CardProps } from '../constant/interface';
+import DefaultImg from '@/app/assets/defaultImg.svg';
 
 export default function Card({ name, index }: CardProps) {
   function capitalizeFirstLetter(str: string) {
@@ -15,9 +16,13 @@ export default function Card({ name, index }: CardProps) {
       href={`/${name}`}
     >
       <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-          index + 1
-        }.png`}
+        src={
+          name === 'Pokemon Name'
+            ? DefaultImg
+            : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+                index + 1
+              }.png`
+        }
         alt=""
         className="absolute top-[10%] left-[20%]"
         width={20}

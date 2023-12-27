@@ -5,7 +5,16 @@ import Card from '../commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
 
 export default function PokemonList({ propsName }: any) {
-  const [pokemon, setPokemon] = useState({ results: [{ name: '' }] });
+  const [pokemon, setPokemon] = useState({
+    results: [
+      { name: 'Pokemon Name' },
+      { name: 'Pokemon Name' },
+      { name: 'Pokemon Name' },
+      { name: 'Pokemon Name' },
+      { name: 'Pokemon Name' },
+      { name: 'Pokemon Name' },
+    ],
+  });
   const [searchResult, setSearchResult] = useState([]);
   const [limit, setLimit] = useState(() => {
     const get = getCookie('pokemon-limit');
