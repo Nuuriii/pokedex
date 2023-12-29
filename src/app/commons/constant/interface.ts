@@ -21,6 +21,10 @@ export interface PathProps {
   stats: [{ base_stat: number; stat: { name: string } }];
 }
 
+export interface PokeTypes {
+  types: [{ type: { name: string } }];
+}
+
 export interface StatsProps {
   type: string;
   baseStats: number;

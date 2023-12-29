@@ -3,16 +3,17 @@ import { useState, useEffect } from 'react';
 import { getPokemon } from '@/app/api/apiCall';
 import Card from '../commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
+import { searchPokemon } from '@/app/api/apiCall';
 
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({
     results: [
-      { name: 'Pokemon Name' },
-      { name: 'Pokemon Name' },
-      { name: 'Pokemon Name' },
-      { name: 'Pokemon Name' },
-      { name: 'Pokemon Name' },
-      { name: 'Pokemon Name' },
+      { name: 'bulbasaur' },
+      { name: 'ivysaur' },
+      { name: 'venusaur' },
+      { name: 'charmander' },
+      { name: 'charmeleon' },
+      { name: 'charizard' },
     ],
   });
   const [searchResult, setSearchResult] = useState([]);
@@ -25,6 +26,14 @@ export default function PokemonList({ propsName }: any) {
     fetchData();
     handleSearch();
   }, [limit, propsName]);
+
+  // const handlePokeType =async () => {
+  //   try{
+
+  //   } catch (error){
+  //     console.log(error)
+  //   }
+  // }
 
   const handleSearch = async () => {
     if (!propsName) {
@@ -62,7 +71,7 @@ export default function PokemonList({ propsName }: any) {
   console.log(searchResult);
 
   return (
-    <div className="bg-white dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
+    <div className="bg-white dark:bg-neutral-300 w-full px-[1rem] py-[2rem] rounded-[1rem]">
       <div className="flex flex-wrap gap-4 justify-center">
         {searchResult.length > 0 ? (
           <>

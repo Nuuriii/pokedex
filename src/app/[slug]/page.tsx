@@ -61,7 +61,7 @@ export default function Page() {
     <main
       className={`${bgCheck(
         pokeName.types[0].type.name,
-      )} h-full md:h-screen px-[0.5rem] py-[1rem] md:flex justify-center items-center`}
+      )}  h-full md:h-screen px-[0.5rem] py-[1rem] md:flex justify-center items-center`}
     >
       <div className="md:flex md:justify-center md:bg-white md:rounded-[0.7rem] md:pb-[2rem] lg:w-[60rem]">
         <div className="relative flex flex-col items-center md:w-[50%] ml-[0.5rem] md:pt-[1rem]">
@@ -111,7 +111,11 @@ export default function Page() {
                   {statsText(item.stat.name)}
                 </h1>
                 <div className="flex items-center w-[80%] sm:w-[90%">
-                  <p className="mr-[0.5rem] w-[10%] sm:w-[5%] md:w-[10%]">
+                  <p
+                    className={`mr-[0.5rem] w-[10%] sm:w-[5%] md:w-[10%] ${textType(
+                      pokeName.types[0].type.name,
+                    )}`}
+                  >
                     {item.base_stat}
                   </p>
                   <StatsInformation

@@ -1,7 +1,6 @@
-import axios from "axios";
-import { error } from "console";
+import axios from 'axios';
 
-const apiUrl = "https://pokeapi.co/api/v2";
+const apiUrl = 'https://pokeapi.co/api/v2';
 
 export const getPokemon = async (limit: number) => {
   return axios
