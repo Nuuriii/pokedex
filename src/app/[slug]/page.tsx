@@ -12,6 +12,7 @@ import StatsInformation from '../commons/element/containerStats';
 import AboutInformation from './components/aboutInformation';
 import { BackLink } from './components/backLink';
 import TypePokemon from './components/typePokemon';
+import { capitalizeFirstLetter } from '../commons/element/capitalFirstLetter';
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -51,12 +52,6 @@ export default function Page() {
     }
   };
 
-  function capitalizeFirstLetter(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  let inputStr = capitalizeFirstLetter(pokeName.name);
-
   return (
     <main
       className={`${bgCheck(
@@ -65,7 +60,7 @@ export default function Page() {
     >
       <div className="md:flex md:justify-center md:bg-white md:rounded-[0.7rem] md:pb-[2rem] lg:w-[60rem]">
         <div className="relative flex flex-col items-center md:w-[50%] ml-[0.5rem] md:pt-[1rem]">
-          <BackLink pokemon={inputStr} />
+          <BackLink pokemon={capitalizeFirstLetter(pokeName.name)} />
           <PokemonImages index={pokeName.id} types={pokeName.types} />
         </div>
         <div className="bg-white md:bg-transparent rounded-[0.7rem] mt-[11rem] pt-[2rem] md:mt-0 md:w-[50%] pb-[1rem]">
