@@ -1,9 +1,10 @@
-"use client";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { BsFillSunFill, BsMoon } from "react-icons/bs";
+'use client';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+import { BsFillSunFill, BsMoon } from 'react-icons/bs';
+import { ThemeProps } from '../constant/interface';
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({ bgColor }: ThemeProps) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -19,14 +20,14 @@ const ThemeSwitch = () => {
   return (
     <>
       <button
-        className={`h-[2.5rem] w-[2.5rem] flex justify-center items-center rounded-full active:scale-100 bg-white`}
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className={`h-[2.5rem] w-[2.5rem] flex justify-center items-center rounded-full active:scale-100 ${bgColor}`}
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         aria-label="toggletheme"
       >
-        {theme === "light" ? (
-          <BsMoon size={18} className="text-black" />
+        {theme === 'light' ? (
+          <BsMoon size={18} className="" />
         ) : (
-          <BsFillSunFill size={18} className="text-black" />
+          <BsFillSunFill size={18} className="" />
         )}
       </button>
     </>

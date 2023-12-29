@@ -13,7 +13,9 @@ import AboutInformation from './components/aboutInformation';
 import { BackLink } from './components/backLink';
 import TypePokemon from './components/typePokemon';
 import { capitalizeFirstLetter } from '../commons/element/capitalFirstLetter';
+import { bgCard } from '../commons/element/bgCard';
 import Provider from '../provider';
+import { bgTypeContainer } from '../commons/element/bgTypeContainer';
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -60,14 +62,17 @@ export default function Page() {
           pokeName.types[0].type.name,
         )}  h-full md:h-screen px-[0.5rem] py-[1rem] md:flex justify-center items-center`}
       >
-        <div className="md:flex md:flex-col md:justify-center md:bg-white dark:bg-neutral-800 md:rounded-[0.7rem] md:pb-[2rem] lg:w-[60rem] md:pt-[1rem]">
+        <div className="md:flex md:flex-col md:justify-center md:bg-white md:dark:bg-neutral-800 md:rounded-[0.7rem] md:pb-[2rem] lg:w-[60rem] md:pt-[1rem]">
           <div className="w-full">
-            <BackLink pokemon={capitalizeFirstLetter(pokeName.name)} />
+            <BackLink
+              pokemonType={pokeName.types[0].type.name}
+              pokemon={capitalizeFirstLetter(pokeName.name)}
+            />
           </div>
           <div className="md:hidden relative flex flex-col items-center md:w-[50%] ml-[0.5rem] md:pt-[1rem]">
             <PokemonImages index={pokeName.id} types={pokeName.types} />
           </div>
-          <div className="bg-white  justify-center md:bg-transparent rounded-[0.7rem] mt-[11rem] pt-[2rem] md:h-full md:mt-0 md:pt-0 pb-[1rem] md:flex md:w-full">
+          <div className="bg-white dark:bg-neutral-800  justify-center md:bg-transparent rounded-[0.7rem] mt-[11rem] pt-[2rem] md:h-full md:mt-0 md:pt-0 pb-[1rem] md:flex md:w-full">
             <div className="hidden md:flex mr-[2rem]">
               <PokemonImages index={pokeName.id} types={pokeName.types} />
             </div>
@@ -76,7 +81,7 @@ export default function Page() {
                 {pokeName.types.map((item, index) => (
                   <TypePokemon
                     key={index}
-                    bgColor={bgCheck(item.type.name)}
+                    bgColor={bgTypeContainer(item.type.name)}
                     typeName={capitalizeFirstLetter(item.type.name)}
                   />
                 ))}
@@ -84,7 +89,7 @@ export default function Page() {
               <h1
                 className={`${titleType(
                   pokeName.types[0].type.name,
-                )} text-[1.1rem] text-center font-[700] my-[1rem] md:mt-0`}
+                )} text-[1.1rem] text-center font-[700] mt-[2rem] mb-[1rem] md:mt-0`}
               >
                 About
               </h1>

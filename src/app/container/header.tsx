@@ -20,7 +20,7 @@ export default function Header({ onSearch }: SearchProps) {
       <TitleIcon />
       <div className="mt-[1rem] flex items-center justify-between">
         <SearchUi onSearch={(str: string) => setSearch(str)} />
-        <ThemeSwitch />
+        <ThemeSwitch bgColor="bg-white text-black" />
       </div>
     </div>
   );

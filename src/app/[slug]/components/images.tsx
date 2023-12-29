@@ -5,6 +5,8 @@ import { bgCheck } from '@/app/commons/element/bgType';
 import TypePokemon from './typePokemon';
 import { containerStats } from '@/app/commons/element/containerStats';
 import DefaultImg from '@/app/assets/defaultImg.svg';
+import { bgCard } from '@/app/commons/element/bgCard';
+import { bgTypeContainer } from '@/app/commons/element/bgTypeContainer';
 
 export default function PokemonImages({ index, types }: ImageProps) {
   return (
@@ -16,7 +18,7 @@ export default function PokemonImages({ index, types }: ImageProps) {
             : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`
         }
         alt=""
-        className="absolute top-[4rem] md:hidden"
+        className="absolute top-[2rem] md:hidden"
         width={20}
         height={15}
         sizes="100vw"
@@ -26,9 +28,7 @@ export default function PokemonImages({ index, types }: ImageProps) {
         }}
       />
       <div className="hidden md:flex flex-col h-full">
-        <div
-          className={`rounded-[0.5rem] ${containerStats(types[0].type.name)}`}
-        >
+        <div className={`rounded-[0.5rem] ${bgCard(types[0].type.name)}`}>
           <Image
             src={
               types[0].type.name === ''
@@ -45,7 +45,7 @@ export default function PokemonImages({ index, types }: ImageProps) {
             {types.map((item, index) => (
               <TypePokemon
                 key={index}
-                bgColor={bgCheck(item.type.name)}
+                bgColor={bgTypeContainer(item.type.name)}
                 typeName={capitalizeFirstLetter(item.type.name)}
               />
             ))}
