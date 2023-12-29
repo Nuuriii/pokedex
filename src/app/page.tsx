@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <Provider>
-      <main className="bg-[#DC0A2D] dark:bg-red-900 flex min-h-screen flex-col items-center py-[2rem] px-[0.5rem]">
+      <main className="bg-[#DC0A2D] dark:bg-[#330109] flex min-h-screen flex-col items-center py-[2rem] px-[0.5rem]">
         <Header onSearch={(str: string) => setSearch(str)} />
         <PokemonList propsName={search} />
       </main>

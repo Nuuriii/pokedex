@@ -1,40 +1,40 @@
-export const textType = (type: string) => {
+export const titleType = (type: string) => {
   switch (type) {
-    case "grass":
+    case 'grass':
       return `text-[#74CB48]`;
-    case "poison":
+    case 'poison':
       return `text-[#A43E9E]`;
-    case "normal":
+    case 'normal':
       return `text-[#AAA67F]`;
-    case "fire":
+    case 'fire':
       return `text-[#F57D31]`;
-    case "water":
+    case 'water':
       return `text-[#6493EB]`;
-    case "fighting":
+    case 'fighting':
       return `text-[#C12239]`;
-    case "flying":
+    case 'flying':
       return `text-[#A891EC]`;
-    case "ground":
+    case 'ground':
       return `text-[#DEC16B]`;
-    case "rock":
+    case 'rock':
       return `text-[#B69E31]`;
-    case "bug":
+    case 'bug':
       return `text-[#A7B723]`;
-    case "ghost":
+    case 'ghost':
       return `text-[#70559B]`;
-    case "steel":
+    case 'steel':
       return `text-[#B7B9D0]`;
-    case "electric":
+    case 'electric':
       return `text-[#F9CF30]`;
-    case "psychic":
+    case 'psychic':
       return `text-[#FB5584]`;
-    case "ice":
+    case 'ice':
       return `text-[#9AD6DF]`;
-    case "dragon":
+    case 'dragon':
       return `text-[#7037FF]`;
-    case "dark":
+    case 'dark':
       return `text-[#75574C]`;
-    case "fairy":
+    case 'fairy':
       return `text-[#E69EAC]`;
     default:
       return `text-[#666666]`;

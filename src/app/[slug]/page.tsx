@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { searchPokemon } from '../api/apiCall';
 import { PathProps } from '../commons/constant/interface';
 import { bgCheck } from '../commons/element/bgType';
-import { textType } from '../commons/element/textType';
+import { titleType } from '../commons/element/textType';
 import { statsText } from '../commons/element/statsText';
 import { getDescription } from '../api/apiCall';
 import PokemonImages from './components/images';
@@ -74,7 +74,7 @@ export default function Page() {
             ))}
           </div>
           <h1
-            className={`${textType(
+            className={`${titleType(
               pokeName.types[0].type.name,
             )} text-[1.1rem] text-center font-[700] my-[1rem]`}
           >
@@ -89,7 +89,7 @@ export default function Page() {
             {description.split('').join('')}
           </p>
           <h1
-            className={`${textType(
+            className={`${titleType(
               pokeName.types[0].type.name,
             )} text-[1.1rem] text-center font-[700] my-[1rem]`}
           >
@@ -99,7 +99,7 @@ export default function Page() {
             {pokeName.stats.map((item, index) => (
               <div className="flex items-center w-full" key={index}>
                 <h1
-                  className={`${textType(
+                  className={`${titleType(
                     pokeName.types[0].type.name,
                   )} font-[700] pr-[1rem] min-[432px]:border-r-2 md:border-0 border-solid border-neutral-400 w-[15%] md:w-[3rem] mr-[1rem]`}
                 >
@@ -107,7 +107,7 @@ export default function Page() {
                 </h1>
                 <div className="flex items-center w-[80%] sm:w-[90%">
                   <p
-                    className={`mr-[0.5rem] w-[10%] sm:w-[5%] md:w-[10%] ${textType(
+                    className={`mr-[0.5rem] w-[10%] sm:w-[5%] md:w-[10%] ${titleType(
                       pokeName.types[0].type.name,
                     )}`}
                   >

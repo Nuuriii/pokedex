@@ -1,10 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { SearchProps } from '../constant/interface';
-import Image from 'next/image';
 import { IoSearchOutline } from 'react-icons/io5';
-import Close from '@/app/assets/close.svg';
-export let searchValue = '';
 import { CgClose } from 'react-icons/cg';
 
 export default function SearchUi({ onSearch }: SearchProps) {
@@ -22,7 +19,6 @@ export default function SearchUi({ onSearch }: SearchProps) {
     setSearch('');
   };
 
-  //console.log(search);
   return (
     <div
       className={`w-[85%] bg-white flex items-center rounded-[3rem] h-[2.5rem] px-[1rem] ${
@@ -36,7 +32,7 @@ export default function SearchUi({ onSearch }: SearchProps) {
         />
       </label>
       <input
-        className="w-[70%] text-[#666666] bg-inherit mr-[0.5rem] focus:outline-none"
+        className="w-[90%] text-[#666666] bg-inherit mr-[0.5rem] focus:outline-none"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
