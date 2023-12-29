@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Provider from './provider';
 import Header from './container/header';
-import PokemonList from './container/home';
+import PokemonList from './container/content';
 
 export default function Home() {
   const [search, setSearch] = useState('');

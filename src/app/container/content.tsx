@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { getPokemon } from '@/app/api/apiCall';
 import Card from '../commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
-import { searchPokemon } from '@/app/api/apiCall';
 
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({
@@ -26,14 +25,6 @@ export default function PokemonList({ propsName }: any) {
     fetchData();
     handleSearch();
   }, [limit, propsName]);
-
-  // const handlePokeType =async () => {
-  //   try{
-
-  //   } catch (error){
-  //     console.log(error)
-  //   }
-  // }
 
   const handleSearch = async () => {
     if (!propsName) {
