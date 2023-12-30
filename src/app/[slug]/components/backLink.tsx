@@ -16,7 +16,7 @@ export function BackLink({ pokemon, pokemonType }: BackLinkProps) {
         <FiArrowLeft size={28} />
         <span className="ml-[0.5rem]">{pokemon}</span>
       </Link>
-      <ThemeSwitch bgColor={`md:hidden bg-white`} />
+      <ThemeSwitch bgColor={`md:hidden bg-white text-black`} />
       <ThemeSwitch
         bgColor={`hidden text-white dark:text-black md:flex ${bgTheme}`}
       />

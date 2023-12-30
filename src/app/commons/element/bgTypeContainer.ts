@@ -7,7 +7,7 @@ export const bgTypeContainer = (type: string) => {
     case 'normal':
       return `bg-[#AAA67F]`;
     case 'fire':
-      return `bg-[#F57D31]`;
+      return `bg-[#F57D31] md:dark:bg-[#47240e]`;
     case 'water':
       return `bg-[#6493EB]`;
     case 'fighting':

@@ -3,13 +3,13 @@ export const bgStatValue = (type: string) => {
     case 'grass':
       return `bg-[#74CB48] dark:bg-[#c0faa2]`;
     case 'poison':
-      return `bg-[#A43E9E]`;
+      return `bg-[#A43E9E] dark:bg-[#f0aaec]`;
     case 'normal':
-      return `bg-[#AAA67F]`;
+      return `bg-[#AAA67F] dark:bg-[#f2ecae]`;
     case 'fire':
-      return `bg-[#F57D31]`;
+      return `bg-[#F57D31] dark:bg-[#f0ae84]`;
     case 'water':
-      return `bg-[#6493EB]`;
+      return `bg-[#6493EB] dark:bg-[#81aaf7]`;
     case 'fighting':
       return `bg-[#C12239]`;
     case 'flying':
@@ -19,7 +19,7 @@ export const bgStatValue = (type: string) => {
     case 'rock':
       return `bg-[#B69E31]`;
     case 'bug':
-      return `bg-[#A7B723]`;
+      return `bg-[#A7B723] dark:bg-[#ebf788]`;
     case 'ghost':
       return `bg-[#70559B]`;
     case 'steel':
