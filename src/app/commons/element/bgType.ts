@@ -11,11 +11,11 @@ export const bgCheck = (type: string) => {
     case 'water':
       return `bg-[#6493EB] dark:bg-[#1a2a47]`;
     case 'fighting':
-      return `bg-[#C12239]`;
+      return `bg-[#C12239] dark:bg-[#520e18]`;
     case 'flying':
       return `bg-[#A891EC]`;
     case 'ground':
-      return `bg-[#DEC16B]`;
+      return `bg-[#DEC16B] dark:bg-[#453c20]`;
     case 'rock':
       return `bg-[#B69E31]`;
     case 'bug':
@@ -25,7 +25,7 @@ export const bgCheck = (type: string) => {
     case 'steel':
       return `bg-[#B7B9D0]`;
     case 'electric':
-      return `bg-[#F9CF30]`;
+      return `bg-[#F9CF30] dark:bg-[#332a09]`;
     case 'psychic':
       return `bg-[#FB5584]`;
     case 'ice':
@@ -35,7 +35,7 @@ export const bgCheck = (type: string) => {
     case 'dark':
       return `bg-[#75574C]`;
     case 'fairy':
-      return `bg-[#E69EAC]`;
+      return `bg-[#E69EAC] dark:bg-[#422d31]`;
     default:
       return `bg-[#666666]`;
   }

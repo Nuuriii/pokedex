@@ -15,11 +15,11 @@ export const containerStats = (stats: string) => {
     case 'water':
       return `bg-[#cfdefa] dark:bg-[#384969]`;
     case 'fighting':
-      return `bg-[#facdd3]`;
+      return `bg-[#facdd3] dark:bg-[#614e51]`;
     case 'flying':
       return `bg-[#d8cef5]`;
     case 'ground':
-      return `bg-[#f7e8ba]`;
+      return `bg-[#f7e8ba] dark:bg-[#6e6752]`;
     case 'rock':
       return `bg-[#fcefb1]`;
     case 'bug':
@@ -29,7 +29,7 @@ export const containerStats = (stats: string) => {
     case 'steel':
       return `bg-[#d3d5eb]`;
     case 'electric':
-      return `bg-[#faebb4]`;
+      return `bg-[#faebb4] dark:bg-[#61531e]`;
     case 'psychic':
       return `bg-[#f7cdd9]`;
     case 'ice':
@@ -39,7 +39,7 @@ export const containerStats = (stats: string) => {
     case 'dark':
       return `bg-[#d1b8b0]`;
     case 'fairy':
-      return `bg-[#f7e1e5]`;
+      return `bg-[#f7e1e5] dark:bg-[#665b5d]`;
     default:
       return 'bg-neutral-300';
   }

@@ -11,11 +11,11 @@ export const bgCard = (type: string) => {
     case 'water':
       return `bg-[#cfdefa] dark:bg-[#394a6b]`;
     case 'fighting':
-      return `bg-[#facdd3]`;
+      return `bg-[#facdd3] dark:bg-[#423637]`;
     case 'flying':
       return `bg-[#d8cef5]`;
     case 'ground':
-      return `bg-[#f7e8ba]`;
+      return `bg-[#f7e8ba] dark:bg-[#595442]`;
     case 'rock':
       return `bg-[#fcefb1]`;
     case 'bug':
@@ -25,7 +25,7 @@ export const bgCard = (type: string) => {
     case 'steel':
       return `bg-[#d3d5eb]`;
     case 'electric':
-      return `bg-[#faebb4]`;
+      return `bg-[#faebb4] dark:bg-[#3d361d]`;
     case 'psychic':
       return `bg-[#f7cdd9]`;
     case 'ice':
@@ -35,7 +35,7 @@ export const bgCard = (type: string) => {
     case 'dark':
       return `bg-[#d1b8b0]`;
     case 'fairy':
-      return `bg-[#f7e1e5]`;
+      return `bg-[#f7e1e5] dark:bg-[#4a4344]`;
     default:
       return 'bg-neutral-300';
   }
