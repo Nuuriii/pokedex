@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Provider from './provider';
-import Header from './container/header';
-import PokemonList from './container/content';
+import Header from '@/app/container/header';
+import PokemonList from '@/app/container/content';
 
 export default function Home() {
   const [search, setSearch] = useState('');

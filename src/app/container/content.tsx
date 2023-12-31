@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { getPokemon } from '@/app/api/apiCall';
-import Card from '../commons/element/card';
+import Card from '@/app/commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
 
 export default function PokemonList({ propsName }: any) {

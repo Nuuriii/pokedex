@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
 import { BackLinkProps } from '@/app/commons/constant/interface';
 import ThemeSwitch from '@/app/commons/element/themeSwitcher';
-import { bgCheck } from '@/app/commons/element/bgType';
 import { bgStatValue } from '@/app/commons/element/bgStatsValue';
 
 export function BackLink({ pokemon, pokemonType }: BackLinkProps) {

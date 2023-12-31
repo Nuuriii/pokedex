@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import TitleIcon from '../commons/element/titleIcon';
-import SearchUi from '../commons/element/searchUi';
-import ThemeSwitch from '../commons/element/themeSwitcher';
-import { SearchProps } from '../commons/constant/interface';
+import TitleIcon from '@/app/commons/element/titleIcon';
+import SearchUi from '@/app/commons/element/searchUi';
+import ThemeSwitch from '@/app/commons/element/themeSwitcher';
+import { SearchProps } from '@/app/commons/constant/interface';
 
 export default function Header({ onSearch }: SearchProps) {
   const [search, setSearch] = useState('');
