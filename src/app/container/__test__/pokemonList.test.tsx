@@ -24,7 +24,6 @@ describe('test', () => {
 
     render(<PokemonList propsName="" />);
 
-    // Ensure that the default Pokemon cards are rendered
     await waitFor(() => {
       mockData.results.forEach((pokemon) => {
         expect(screen.getByText(pokemon.name)).toBeInTheDocument();
