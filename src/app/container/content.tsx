@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getPokemon } from '@/app/api/apiCall';
 import Card from '@/app/commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
+import LoadBtn from '../commons/element/loadBtn';
 
 export default function PokemonList({ propsName }: any) {
   const [pokemon, setPokemon] = useState({
@@ -20,6 +21,7 @@ export default function PokemonList({ propsName }: any) {
     const get = getCookie('pokemon-limit');
     return get === '' || get === null || get === undefined ? 20 : Number(get);
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -45,8 +47,10 @@ export default function PokemonList({ propsName }: any) {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       const data = await getPokemon(limit);
       setPokemon(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -59,9 +63,9 @@ export default function PokemonList({ propsName }: any) {
 
   return (
     <div className="bg-white dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div>
         {searchResult.length > 0 ? (
-          <>
+          <div className="flex flex-wrap gap-4 justify-center">
             {searchResult.map((pokemon: any, index) => (
               <Card
                 key={index}
@@ -69,18 +73,22 @@ export default function PokemonList({ propsName }: any) {
                 index={Number(pokemon.url.split('/')[6] - 1)}
               />
             ))}
-          </>
+          </div>
         ) : searchResult.length === 0 && propsName !== '' ? (
-          <p>Hasil pencarian tidak ditemukan</p>
+          <p className="text-center">{propsName} is not in Pokedex</p>
         ) : (
           <>
-            {pokemon.results.map((item, index) => (
-              <Card key={index} name={item.name} index={index} />
-            ))}
+            <div className="flex flex-wrap gap-4 justify-center">
+              {pokemon.results.map((item, index) => (
+                <Card key={index} name={item.name} index={index} />
+              ))}
+            </div>
+            <div className="flex justify-center mt-[2rem]">
+              <LoadBtn onClick={addPokemon} loading={loading} />
+            </div>
           </>
         )}
       </div>
-      <button onClick={addPokemon}>Load More</button>
     </div>
   );
 }
