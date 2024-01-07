@@ -1,4 +1,4 @@
-import { TypePokemonProps } from "@/app/commons/constant/interface";
+import { TypePokemonProps } from '@/app/commons/constant/interface';
 
 export default function TypePokemon({ bgColor, typeName }: TypePokemonProps) {
   return (

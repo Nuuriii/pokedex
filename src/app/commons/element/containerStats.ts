@@ -1,7 +1,3 @@
-import { StatsProps } from '../constant/interface';
-import { bgCheck } from './bgType';
-import { bgStatValue } from './bgStatsValue';
-
 export const containerStats = (stats: string) => {
   switch (stats) {
     case 'grass':

@@ -1,7 +1,7 @@
 export const titleType = (type: string) => {
   switch (type) {
     case 'grass':
-      return `text-[#74CB48] dark:text-[#6fab50]`;
+      return `text-[#74CB48]`;
     case 'poison':
       return `text-[#A43E9E]`;
     case 'normal':

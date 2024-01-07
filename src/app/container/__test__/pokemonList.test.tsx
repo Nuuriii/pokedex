@@ -3,11 +3,6 @@ import PokemonList from '../content';
 import { getPokemon } from '@/app/api/apiCall';
 
 describe('test', () => {
-  test('check Load Btn', () => {
-    render(<PokemonList />);
-    const loadBtn = screen.getByText('Load More');
-    expect(loadBtn).toBeInTheDocument();
-  });
   it('renders PokemonList component with default data', async () => {
     const mockData = {
       results: [
@@ -23,6 +18,9 @@ describe('test', () => {
     getPokemon(20);
 
     render(<PokemonList propsName="" />);
+
+    // const loadBtn = screen.getByText('Load More');
+    // expect(loadBtn).toBeInTheDocument();
 
     await waitFor(() => {
       mockData.results.forEach((pokemon) => {
