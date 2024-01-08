@@ -62,8 +62,8 @@ export default function PokemonList({ propsName }: any) {
   };
 
   return (
-    <div className="bg-white dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
-      <div>
+    <div className="bg-white min-[1444px]:flex min-[1444px]:justify-center dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
+      <div className="min-[1444px]:w-[90rem]">
         {searchResult.length > 0 ? (
           <div className="flex flex-wrap gap-4 justify-center">
             {searchResult.map((pokemon: any, index) => (

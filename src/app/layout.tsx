@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
+import Head from 'next/head';
 import './globals.css';
 
 const poppins = Poppins({
@@ -31,9 +32,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="./icon.png" sizes="any" />
-      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );
