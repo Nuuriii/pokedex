@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import { ImageProps } from '@/app/commons/constant/interface';
 import { capitalizeFirstLetter } from '@/app/commons/element/capitalFirstLetter';
-import { bgCheck } from '@/app/commons/element/bgType';
 import TypePokemon from './typePokemon';
-import { containerStats } from '@/app/commons/element/containerStats';
 import DefaultImg from '@/app/assets/defaultImg.svg';
 import { bgCard } from '@/app/commons/element/bgCard';
 import { bgTypeContainer } from '@/app/commons/element/bgTypeContainer';

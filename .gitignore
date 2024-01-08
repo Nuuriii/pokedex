@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# next-pwa
+/public/workbox**
+/public/sw**
+/public/worker**
+/public/swe-worker-development**
+/public/fallback**
+/public/precache**

@@ -27,6 +27,7 @@ export default function SearchUi({ onSearch }: SearchProps) {
     >
       <label htmlFor="search">
         <IoSearchOutline
+          data-testid="search-icon"
           className="text-[#DC0A2D] dark:text-neutral-800 mr-[0.5rem]"
           size={20}
         />

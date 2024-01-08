@@ -1,13 +1,13 @@
 export const bgTypeContainer = (type: string) => {
   switch (type) {
     case 'grass':
-      return `bg-[#74CB48] md:dark:bg-[#396622]`;
+      return `bg-[#74CB48]`;
     case 'poison':
       return `bg-[#A43E9E]`;
     case 'normal':
       return `bg-[#AAA67F]`;
     case 'fire':
-      return `bg-[#F57D31] md:dark:bg-[#47240e]`;
+      return `bg-[#F57D31] `;
     case 'water':
       return `bg-[#6493EB]`;
     case 'fighting':

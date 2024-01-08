@@ -20,14 +20,15 @@ const ThemeSwitch = ({ bgColor }: ThemeProps) => {
   return (
     <>
       <button
+        data-testid="theme-btn"
         className={`h-[2.5rem] w-[2.5rem] flex justify-center items-center rounded-full active:scale-100 ${bgColor}`}
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         aria-label="toggletheme"
       >
         {theme === 'light' ? (
-          <BsMoon size={18} className="" />
+          <BsMoon data-testid="bs-moon" size={18} className="" />
         ) : (
-          <BsFillSunFill size={18} className="" />
+          <BsFillSunFill data-testid="bs-sun" size={18} className="" />
         )}
       </button>
     </>

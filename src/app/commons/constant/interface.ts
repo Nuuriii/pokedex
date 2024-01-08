@@ -54,3 +54,8 @@ export interface TypePokemonProps {
 export interface ThemeProps {
   bgColor: string;
 }
+
+export interface LoadBtnProps {
+  loading: boolean;
+  onClick: () => void;
+}

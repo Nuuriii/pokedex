@@ -1,21 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { searchPokemon } from '../api/apiCall';
-import { PathProps } from '../commons/constant/interface';
-import { bgCheck } from '../commons/element/bgType';
-import { titleType } from '../commons/element/textType';
-import { statsText } from '../commons/element/statsText';
-import { getDescription } from '../api/apiCall';
-import PokemonImages from './components/images';
-import StatsInformation from '../commons/element/containerStats';
-import AboutInformation from './components/aboutInformation';
-import { BackLink } from './components/backLink';
-import TypePokemon from './components/typePokemon';
-import { capitalizeFirstLetter } from '../commons/element/capitalFirstLetter';
-import { bgCard } from '../commons/element/bgCard';
-import Provider from '../provider';
-import { bgTypeContainer } from '../commons/element/bgTypeContainer';
+import Provider from '@/app/provider';
+import { searchPokemon } from '@/app/api/apiCall';
+import { getDescription } from '@/app/api/apiCall';
+import { PathProps } from '@/app/commons/constant/interface';
+import { bgCheck } from '@/app/commons/element/bgType';
+import { titleType } from '@/app/commons/element/textType';
+import { statsText } from '@/app/commons/element/statsText';
+import { capitalizeFirstLetter } from '@/app/commons/element/capitalFirstLetter';
+import { bgTypeContainer } from '@/app/commons/element/bgTypeContainer';
+import StatsInformation from '@/app/commons/element/statsInformation';
+import PokemonImages from '@/app/[slug]/components/images';
+import AboutInformation from '@/app/[slug]/components/aboutInformation';
+import { BackLink } from '@/app/[slug]/components/backLink';
+import TypePokemon from '@/app/[slug]/components/typePokemon';
 
 export default function Page() {
   const [pokeName, setPokename] = useState<PathProps>({
@@ -114,7 +113,7 @@ export default function Page() {
                     <h1
                       className={`${titleType(
                         pokeName.types[0].type.name,
-                      )} font-[700] pr-[1rem] min-[432px]:border-r-2 md:border-0 border-solid border-neutral-400 w-[15%] md:w-[3rem] mr-[1rem]`}
+                      )} font-[500] pr-[1rem] text-[0.9rem] min-[432px]:border-r-2 md:border-0 border-solid border-neutral-400 w-[15%] md:w-[3rem] mr-[1rem] py-[0.1rem]`}
                     >
                       {statsText(item.stat.name)}
                     </h1>
