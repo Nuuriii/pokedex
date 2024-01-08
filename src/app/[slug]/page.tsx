@@ -113,7 +113,7 @@ export default function Page() {
                     <h1
                       className={`${titleType(
                         pokeName.types[0].type.name,
-                      )} font-[700] pr-[1rem] min-[432px]:border-r-2 md:border-0 border-solid border-neutral-400 w-[15%] md:w-[3rem] mr-[1rem]`}
+                      )} font-[500] pr-[1rem] text-[0.9rem] min-[432px]:border-r-2 md:border-0 border-solid border-neutral-400 w-[15%] md:w-[3rem] mr-[1rem] py-[0.1rem]`}
                     >
                       {statsText(item.stat.name)}
                     </h1>
