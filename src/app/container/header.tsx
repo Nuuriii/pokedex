@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
 import TitleIcon from '@/app/commons/element/titleIcon';
 import SearchUi from '@/app/commons/element/searchUi';
 import ThemeSwitch from '@/app/commons/element/themeSwitcher';
-import { SearchProps } from '@/app/commons/constant/interface';
 
 export default function Header() {
   return (
