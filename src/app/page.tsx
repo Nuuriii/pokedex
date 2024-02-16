@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import NextThemeProvider from './provider';
 import Header from '@/app/container/header';
 import PokemonList from '@/app/container/content';
