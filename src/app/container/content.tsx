@@ -4,8 +4,10 @@ import { getPokemon } from '@/app/api/apiCall';
 import Card from '@/app/commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
 import LoadBtn from '../commons/element/loadBtn';
+import type { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
 
-export default function PokemonList({ propsName }: any) {
+export default function PokemonList() {
   const [pokemon, setPokemon] = useState({
     results: [
       { name: 'bulbasaur' },
@@ -22,14 +24,17 @@ export default function PokemonList({ propsName }: any) {
     return get === '' || get === null || get === undefined ? 20 : Number(get);
   });
   const [loading, setLoading] = useState(false);
+  const searchValue = useSelector(
+    (state: RootState) => state.searchPokemon.search,
+  );
 
   useEffect(() => {
     fetchData();
     handleSearch();
-  }, [limit, propsName]);
+  }, [limit, searchValue]);
 
   const handleSearch = async () => {
-    if (!propsName) {
+    if (!searchValue) {
       setSearchResult([]);
       return;
     }
@@ -37,7 +42,7 @@ export default function PokemonList({ propsName }: any) {
     try {
       const response = await getPokemon(limit);
       const filteredResults = response.results.filter((pokemon: any) =>
-        pokemon.name.toLowerCase().startsWith(propsName.toLowerCase()),
+        pokemon.name.toLowerCase().startsWith(searchValue.toLowerCase()),
       );
       setSearchResult(filteredResults);
     } catch (error) {
@@ -61,10 +66,11 @@ export default function PokemonList({ propsName }: any) {
     setCookie('pokemon-limit', `${limit + 20}`, { maxAge: 60 * 60 * 24 });
   };
 
+  console.log(searchValue, searchResult);
   return (
     <div className="bg-white min-[1444px]:flex min-[1444px]:justify-center dark:bg-neutral-800 w-full px-[1rem] py-[2rem] rounded-[1rem]">
       <div className="min-[1444px]:w-[90rem]">
-        {searchResult.length > 0 ? (
+        {searchResult.length > 0 && searchValue !== '' ? (
           <div className="flex flex-wrap gap-4 justify-center">
             {searchResult.map((pokemon: any, index) => (
               <Card
@@ -74,8 +80,8 @@ export default function PokemonList({ propsName }: any) {
               />
             ))}
           </div>
-        ) : searchResult.length === 0 && propsName !== '' ? (
-          <p className="text-center">{propsName} is not in Pokedex</p>
+        ) : searchResult.length === 0 && searchValue !== '' ? (
+          <p className="text-center">{searchValue} is not in Pokedex</p>
         ) : (
           <>
             <div className="flex flex-wrap gap-4 justify-center">
