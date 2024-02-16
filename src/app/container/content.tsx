@@ -4,8 +4,10 @@ import { getPokemon } from '@/app/api/apiCall';
 import Card from '@/app/commons/element/card';
 import { setCookie, getCookie } from 'cookies-next';
 import LoadBtn from '../commons/element/loadBtn';
+import type { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
 
-export default function PokemonList({ propsName }: any) {
+export default function PokemonList() {
   const [pokemon, setPokemon] = useState({
     results: [
       { name: 'bulbasaur' },
@@ -22,14 +24,19 @@ export default function PokemonList({ propsName }: any) {
     return get === '' || get === null || get === undefined ? 20 : Number(get);
   });
   const [loading, setLoading] = useState(false);
+  const searchValue = useSelector(
+    (state: RootState) => state.searchPokemon.search,
+  );
+
+  console.log('ini di list pokemon', searchValue);
 
   useEffect(() => {
     fetchData();
     handleSearch();
-  }, [limit, propsName]);
+  }, [limit, searchValue]);
 
   const handleSearch = async () => {
-    if (!propsName) {
+    if (!searchValue) {
       setSearchResult([]);
       return;
     }
@@ -37,7 +44,7 @@ export default function PokemonList({ propsName }: any) {
     try {
       const response = await getPokemon(limit);
       const filteredResults = response.results.filter((pokemon: any) =>
-        pokemon.name.toLowerCase().startsWith(propsName.toLowerCase()),
+        pokemon.name.toLowerCase().startsWith(searchValue.toLowerCase()),
       );
       setSearchResult(filteredResults);
     } catch (error) {
@@ -74,8 +81,8 @@ export default function PokemonList({ propsName }: any) {
               />
             ))}
           </div>
-        ) : searchResult.length === 0 && propsName !== '' ? (
-          <p className="text-center">{propsName} is not in Pokedex</p>
+        ) : searchResult.length === 0 && searchValue !== '' ? (
+          <p className="text-center">{searchValue} is not in Pokedex</p>
         ) : (
           <>
             <div className="flex flex-wrap gap-4 justify-center">
