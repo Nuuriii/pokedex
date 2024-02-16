@@ -28,8 +28,6 @@ export default function PokemonList() {
     (state: RootState) => state.searchPokemon.search,
   );
 
-  console.log('ini di list pokemon', searchValue);
-
   useEffect(() => {
     fetchData();
     handleSearch();

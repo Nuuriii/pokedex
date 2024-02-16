@@ -19,7 +19,6 @@ export const searchingSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { searchPokemonByName } = searchingSlice.actions;
 
 export default searchingSlice.reducer;
